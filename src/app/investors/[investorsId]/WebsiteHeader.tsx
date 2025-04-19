@@ -20,7 +20,7 @@ export function WebsiteHeader({
   children?: ReactNode;
 }) {
 
-  websiteId = 'c0342d10-22ec-443e-9582-2224616f99c1'
+  // websiteId = 'c0342d10-22ec-443e-9582-2224616f99c1'
   const { formatMessage, labels } = useMessages();
   const { renderTeamUrl } = useTeamUrl();
   const pathname = usePathname();

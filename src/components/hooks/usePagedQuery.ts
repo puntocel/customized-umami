@@ -14,7 +14,6 @@ export function usePagedQuery<T = any>({
     search: '',
     page: +queryParams.page || 1,
   });
-
   const { useQuery } = useApi();
   const { data, ...query } = useQuery({
     queryKey: [{ ...queryKey, ...params }],

@@ -6,13 +6,13 @@ export default async function ({
   params,
 }: {
   children: any;
-  params: Promise<{ websiteId: string }>;
+  params: Promise<{ investorsId: string }>;
 }) {
-  // const { websiteId } = await params;
-  const websiteId = 'c0342d10-22ec-443e-9582-2224616f99c1';
+  const { investorsId } = await params;
+  // const websiteId = 'c0342d10-22ec-443e-9582-2224616f99c1';
 
-  console.log(websiteId)
-  return <WebsiteProvider websiteId={websiteId}>{children}</WebsiteProvider>;
+  console.log(investorsId)
+  return <WebsiteProvider websiteId={investorsId}>{children}</WebsiteProvider>;
 }
 
 export const metadata: Metadata = {

@@ -38,6 +38,7 @@ export function useApi() {
   return {
     get: useCallback(
       async (url: string, params: object = {}, headers: object = {}) => {
+        // console.log(url)
         return httpGet(getUrl(url), params, getHeaders(headers))
           .then(handleResponse)
           .catch(handleError);

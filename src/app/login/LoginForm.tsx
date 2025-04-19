@@ -28,7 +28,7 @@ export function LoginForm() {
       onSuccess: async ({ token, user }) => {
         setClientAuthToken(token);
         setUser(user);
-
+        localStorage.setItem('userId', user.id);
         localStorage.setItem('userRole', user.role);
 
         router.push('/dashboard');
