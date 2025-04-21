@@ -6,6 +6,7 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 # Add yarn timeout to handle slow CPU when Github Actions
 RUN yarn config set network-timeout 300000
+RUN yarn cache clean
 RUN yarn install --frozen-lockfile
 
 # Rebuild the source code only when needed

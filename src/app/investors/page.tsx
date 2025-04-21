@@ -1,37 +1,13 @@
+
 'use client'
 
-import useInvestors from '@/components/hooks/queries/useInvestors';
 import InvestorPage from './InvestorPage';
-import { Metadata } from 'next';
-import { useLogin } from '@/components/hooks';
-import { getClientAuthToken } from '@/lib/client';
-import { useState, useEffect } from 'react';
+import { Suspense } from 'react';
+
+console.log(process.env.NEXT_PUBLIC_INVESTOR_ID)
+const INVESTOR_ID = process.env.NEXT_PUBLIC_INVESTOR_ID || '5b40fef7-d9c5-4752-b914-e298a7e89715';
 
 export default function () {
-  const queryResult = useInvestors({})
-  const [investorId, setInvestorId] = useState('')
-  const userid = localStorage.getItem('userId')
-
-  fetch(`/api/users/${userid}/websites`, {
-    method: 'GET',
-    cache: 'no-cache',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${getClientAuthToken()}`
-    },
-  }).then(async res => {
-    const data = await res.json();
-    setInvestorId(data.data[0]?.id)
-  });
-  useEffect(() => {
-
-    console.log(investorId)
-  }, [investorId])
-
-  return <InvestorPage websiteId={investorId} />;
+  const investorId = INVESTOR_ID
+  return <Suspense><InvestorPage websiteId={investorId} /></Suspense>;
 }
-
-// export const metadata: Metadata = {
-//   title: 'inverstors',
-// };

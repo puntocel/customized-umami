@@ -9,12 +9,15 @@ import { getClientAuthToken } from '@/lib/client';
 export default function InvestorPage({ websiteId }) {
   const { teamId } = useTeamUrl();
 
-  console.log('investorId:', websiteId)
-  window.location.pathname = `investors/${websiteId}`
+  useEffect(() => {
+    if (window) {
+      window.location.pathname = `investors/${websiteId}`
+    }
+  }, [])
   return (
     <>
       <WebsitesHeader websiteId={websiteId} teamId={teamId} allowCreate={false} />
-      {/* <WebsitesDataTable teamId={teamId} allowEdit={false} /> */}
+      <WebsitesDataTable teamId={teamId} allowEdit={false} />
     </>
   );
 }
