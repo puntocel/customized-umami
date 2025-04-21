@@ -13,7 +13,7 @@ import WebsiteHeader from '../WebsiteHeader';
 import { percentFilter } from '@/lib/filters';
 
 export function WebsiteRealtimePage({ websiteId }) {
-  // websiteId = 'c0342d10-22ec-443e-9582-2224616f99c1'
+
   const { data, isLoading, error } = useRealtime(websiteId);
   //console.log('data', data)
   if (isLoading || error) {

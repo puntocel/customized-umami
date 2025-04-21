@@ -9,7 +9,6 @@ export default async function ({
   params: Promise<{ investorsId: string }>;
 }) {
   const { investorsId } = await params;
-  // const websiteId = 'c0342d10-22ec-443e-9582-2224616f99c1';
 
   console.log(investorsId)
   return <WebsiteProvider websiteId={investorsId}>{children}</WebsiteProvider>;
