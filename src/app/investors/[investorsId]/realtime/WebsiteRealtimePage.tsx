@@ -15,7 +15,6 @@ import { percentFilter } from '@/lib/filters';
 export function WebsiteRealtimePage({ websiteId }) {
 
   const { data, isLoading, error } = useRealtime(websiteId);
-  //console.log('data', data)
   if (isLoading || error) {
     return <Page isLoading={isLoading} error={error} />;
   }
