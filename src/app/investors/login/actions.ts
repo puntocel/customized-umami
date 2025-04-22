@@ -4,16 +4,15 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 
 export async function login(formData: FormData) {
-    const email = formData.get('email')?.toString()
+    const loginId = formData.get('id')?.toString()
     const password = formData.get('password')?.toString()
 
-    // Set auth gate
-    // Dummy validation (replace with real logic)
-    //   const isValidUser = email === 'admin@site.com' && password === '1234'
 
-    //   if (!isValidUser) {
-    //     throw new Error('Invalid email or password')
-    //   }
+    const isValidUser = loginId === 'investor' && password === 'Nexus1'
+
+    if (!isValidUser) {
+        throw new Error('Invalid ID or password')
+    }
     const cookieStore = await cookies()
 
     // Set auth cookie

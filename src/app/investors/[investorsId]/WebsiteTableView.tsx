@@ -21,7 +21,7 @@ export default function WebsiteTableView({ websiteId }: { websiteId: string }) {
   return (
     <Grid>
       <GridRow columns="two">
-        <PagesTableIn {...tableProps} />
+        {/* <PagesTableIn {...tableProps} /> */}
         <ReferrersTable {...tableProps} />
       </GridRow>
       <GridRow columns="three">

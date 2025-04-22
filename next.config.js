@@ -17,6 +17,8 @@ const frameAncestors = process.env.ALLOWED_FRAME_URLS;
 const privateMode = process.env.PRIVATE_MODE;
 const trackerScriptName = process.env.TRACKER_SCRIPT_NAME;
 const trackerScriptURL = process.env.TRACKER_SCRIPT_URL;
+const authToken = process.env.AUTH_TOKEN;
+const investorId = process.env.INVESTOR_ID;
 
 const contentSecurityPolicy = [
   `default-src 'self'`,
@@ -188,6 +190,8 @@ const config = {
     disableLogin,
     disableUI,
     privateMode,
+    investorId,
+    authToken
   },
   basePath,
   output: 'standalone',

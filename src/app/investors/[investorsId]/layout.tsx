@@ -10,6 +10,7 @@ export default async function ({
 }) {
   const { investorsId } = await params;
 
+
   console.log(investorsId)
   return <WebsiteProvider websiteId={investorsId}>{children}</WebsiteProvider>;
 }
