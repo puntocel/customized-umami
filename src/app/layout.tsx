@@ -22,6 +22,7 @@ export default function ({ children }) {
         <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#2f2f2f" media="(prefers-color-scheme: dark)" />
         <meta name="robots" content="noindex,nofollow" />
+        <script src="/env.js"></script>
       </head>
       <body suppressHydrationWarning>
         <Providers>{children}</Providers>

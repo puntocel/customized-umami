@@ -40,7 +40,7 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 RUN set -x \
-    && apk add --no-cache curl \
+    && apk add --no-cache curl gettext bash \
     && yarn add npm-run-all dotenv semver prisma@6.1.0
 
 # You only need to copy next.config.js if you are NOT using the default configuration
@@ -55,6 +55,11 @@ COPY --from=builder /app/scripts ./scripts
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# Copy our env‐template & entrypoint
+COPY public/env.template.js  ./public/env.template.js
+COPY entrypoint.sh    /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 USER nextjs
 
 EXPOSE 3000
@@ -62,4 +67,5 @@ EXPOSE 3000
 ENV HOSTNAME 0.0.0.0
 ENV PORT 3000
 
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["yarn", "start-docker"]

@@ -1,0 +1,4 @@
+window._RUNTIME_ENV_ = {
+    INVESTOR_ID: "__INVESTOR_ID__",
+    ADMIN_TOKEN: "__ADMIN_TOKEN__",
+};

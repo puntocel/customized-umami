@@ -1,13 +1,15 @@
 ---
 services:
   umami:
-    image: ghcr.io/umami-software/umami:postgresql-latest
+    image: ghcr.io/puntocel/customized-umami:latest
     ports:
       - "3000:3000"
     environment:
       DATABASE_URL: postgresql://umami:umami@db:5432/umami
       DATABASE_TYPE: postgresql
       APP_SECRET: replace-me-with-a-random-string
+      AUTH_TOKEN: yNjGutVYSfhv7a8vY8AYTlUnmrJ1RwN2YhU639X8lDkyoCIZnNB5oAlUH8co3cYP0M4HJmOkHE4PHwZ8YRGOcj8nM2q1H/J3DHANCJ3r2xRRXHaekyqVkhioEESxZxCI3/Aztf8JpJGxZCFviBMQ7YB6ylsahhrZZipvQMMKJ28/ZtVpLlam9pGt8qrrU0o0S5+Fc8LihFGI72AAMQ9uq+1kOY1912aP1kbKFSFwtP/h0JfqyI7RNzymvUoXBboF5/0ZTyl4Y1RjScvYResBjYFISgEMLgpugNrDd2DMojFjhpPBQfW7AOjWoEhVA1bbe+VTwM9MjSu942dTOb9RkOPnVGJivl5h3CacvG6dRkNWf8eQAwxB76LXuxCX
+      INVESTOR_ID: c0342d10-22ec-443e-9582-2224616f99c1
 
     depends_on:
       db:
